@@ -1,2 +1,2 @@
 # js-function-basics
-Following function basics in curriculum
+Following function basics in The Odin Project curriculum
