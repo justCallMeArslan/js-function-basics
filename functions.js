@@ -1,4 +1,4 @@
-function favoriteAnimal(animal){ //keyword: function, name of the function, parameters in parentheses
+function favoriteAnimal(animal) { //keyword: function, name of the function, parameters in parentheses
     return animal + " is my favorite animal!" //function body
 }
 
@@ -35,7 +35,7 @@ function showMessage2() {
 
     let message = "Greeting, " + userName2;
     console.log(message);
-    
+
 }
 
 console.log(userName2); // Fred - before function called.
@@ -51,7 +51,7 @@ console.log(userName2); //Dick - result after function called.
 let animal = "Worm";
 
 function guessAnimal() {
-    let animal = "Cockroach"; 
+    let animal = "Cockroach";
     console.log(animal);
 }
 
@@ -70,33 +70,33 @@ function showMessage3(from, text) {
 showMessage3("Ann", "Hi"); // when the function called, given values copied to local variables from and text
 showMessage3("Ann", "How are you doing?"); // given values called arguments as they get passed to the function
 
-// we declare functions listing their parameters, then call them passing arguments.
+// we declare functions listing their parameters, then call them by passing arguments.
 
 
 //Default values
 
-// if function is called,but argument is not provided, then the corresponding value becomes undefined.
+// if function is called, but argument is not provided, then the corresponding value becomes undefined.
 
-showMessage3 ("Ann"); // in this example we call the same function as in previous example, but without giving 
+showMessage3("Ann"); // in this example we call the same function as in previous example, but without giving 
 // one of arguments. result - "Ann" : undefined. 
 
 // we can specify the so-called "default" value for a parameter in the function declaration, using = :
 
-function showMessage4( from, text = "no text found"){
+function showMessage4(from, text = "no text found") {
     console.log(from + ": " + text);
 }
 
 showMessage4("Ann"); // Ann: no text found
 
-//default valuealso jumps in when parameter exists, but strictly equals to undefined:
+//default value also jumps in when parameter exists, but strictly equals to undefined:
 
 showMessage4("Ann", undefined); // Ann: no text found
 
-// in example above "no text given" is a string, butit can be a more complex expression, which is only eveluated
-// and assigned if the parameter is missing. in example below function anotherFunction() well be called, only 
+// in example above "no text found" is a string, but it can be a more complex expression, which is only eveluated
+// and assigned if the parameter is missing. in example below function anotherFunction() will be called, only 
 // if the text parameter is provided and will be called everytime when text parameter missing:
 
-function showMessage5(from, text = anotherFunction()){}
+function showMessage5(from, text = anotherFunction()) { }
 
 
 
@@ -106,7 +106,7 @@ function showMessage5(from, text = anotherFunction()){}
 // already declared. 
 // we can check if the parameter is passed during function execution, by comparing it with undefined:
 
-function showMessage6(text){
+function showMessage6(text) {
     if (text === undefined) { // check if parameter is missing 
         text = "empty message";
     }
@@ -125,3 +125,68 @@ function showCount(count) {
 showCount(0);
 showCount(null);
 showCount();
+
+
+// Returning a value
+
+// a function can return a value back into the calling code as the result. 
+
+function sum(a, b) {
+    return a * b; // the directive return can be in any place of the function. When the execution reaches it,
+    // the function stops, and the value is returned to the calling code.    
+}
+
+console.log(sum(6, 5));
+
+
+function checkAge(age) {
+    if (age >= 18) { // 2. After getting age of user we compare it against age of being "legal"
+        return true; // 3. If age more than 18 or equal to 18 we pass true to second if statement
+    } else {
+        return ('Do you have permission from your parents?'); // should be confirm()
+    }
+}
+
+let age = ('How old are you?', "0");    // 1. Ask how old user is?  Should be prompt()
+if (checkAge(age)) { //4. recieved true and proceeds with reply to user
+    console.log('Access granted');
+} else {
+    console.log('Access denied');
+}
+
+// it is possible to use return without a value. That causes the function to exit immediately. It happens because,
+// function with an empty return or without it returns undefined. 
+
+
+function doNothing() {
+}
+console.log( doNothing() === undefined); // true
+
+function doAbsoluelyNothing() {
+    return;
+}
+console.log(doAbsoluelyNothing() === undefined); // true
+
+
+function showMovie(age) {
+    if (checkAge(age)){
+        return;
+    }
+    console.log("Showing you the movie");   
+}
+console.log(showMovie());
+
+
+// when we want to return long expression we should start it in the same line as return
+
+// return 
+//  (some + long + expression + or + whatever * f(a) + f(b))  - this is wrong
+
+// return (
+//   some + long + expression
+//   + or +
+//   whatever * f(a) + f(b)
+//   )                                                        - this is correct
+
+
+
