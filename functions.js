@@ -190,3 +190,23 @@ console.log(showMovie());
 
 
 
+//Naming a function 
+
+// functions are actions, so their name is usually a verb. Ideally it should be brief, acccurate as possible and
+// describe what function does.
+
+// examples of good function names :
+// showMessage(..) - shows a message
+// getAge(..)      - returns the age (gets it somehow)
+// calcSum(..)     - calculates a sum and returns the result
+// createForm(..)  - creates a form (and usually returns it)
+// checkPermission(..) - checks a permission, returns true/false
+
+// function should do exactly what is suggested by its name, no more. two independent actions usually deserve
+// two functions (in that case its better to create 3rd function that calls those two).
+
+// separate functions sometimes can be very difficult , but it will ease to test and debug - its very existence
+// is a great comment.
+
+
+
