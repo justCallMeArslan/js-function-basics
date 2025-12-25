@@ -210,3 +210,35 @@ console.log(showMovie());
 
 
 
+//Anonymous function
+
+// its called anonymous because it has no name. They usually used when a function parameter is often passed as an
+// anonymous function.
+// this form of creating a function is also known as function expression. Unlike function declaraion, function 
+// expression are not hoisted, meaning they cant be called before function defined in the code.
+
+// example with addEventListener():
+
+let textBox = document.querySelector("#textBox");
+let output = document.querySelector("#output");
+
+// function logKey (event) {
+//     console.log(`You pressed "${event.key}".`);
+// }
+// textBox.addEventListener("keydown", logKey);
+
+// // instead of defining separate logKey() function, you can pass an anonymous function into addEventListener():
+
+// textBox.addEventListener("keydown", function(event){
+//     console.log(`You pressed "${event.key}"`);});
+
+
+// Arrow functions
+
+// using the example above, we can use alternative form called arrow function. Instead of function(event), we
+// write (event) => :
+
+textBox.addEventListener("keydown", (event) => {
+    output.textContent = `You pressed "${event.key}".`;
+});
+
