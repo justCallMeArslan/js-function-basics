@@ -242,3 +242,19 @@ textBox.addEventListener("keydown", (event) => {
     output.textContent = `You pressed "${event.key}".`;
 });
 
+
+
+//Functiom scope and conflicts
+
+// scope - an important concept when dealing with functions. When function created, the variables and other
+// things defined inside the function are inside their own separate scope, means they locked in their own 
+// separate compartment, unreachable from code outside the function. 
+// The top-level outside the function is called the global scope. Values defined in the global scope are
+// accessible from everywhere in the code.
+// Its done for security and organization, to prevent any interrution or intersection from internal or 
+// external resources.
+
+// referenceError: "x" is not defined error is one of the most common you'll encounter. If you get this 
+// error and you are sure that you have defined the variable in question, check what scope it is in.
+
+// loops and conditional scopes work the same way as functions scope. 
