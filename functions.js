@@ -160,7 +160,7 @@ if (checkAge(age)) { //4. recieved true and proceeds with reply to user
 
 function doNothing() {
 }
-console.log( doNothing() === undefined); // true
+console.log(doNothing() === undefined); // true
 
 function doAbsoluelyNothing() {
     return;
@@ -169,10 +169,10 @@ console.log(doAbsoluelyNothing() === undefined); // true
 
 
 function showMovie(age) {
-    if (checkAge(age)){
+    if (checkAge(age)) {
         return;
     }
-    console.log("Showing you the movie");   
+    console.log("Showing you the movie");
 }
 console.log(showMovie());
 
@@ -216,11 +216,12 @@ console.log(showMovie());
 // anonymous function.
 // this form of creating a function is also known as function expression. Unlike function declaraion, function 
 // expression are not hoisted, meaning they cant be called before function defined in the code.
+// no matter the way function created (expression or declaration ), a function is value.
 
 // example with addEventListener():
 
-let textBox = document.querySelector("#textBox");
-let output = document.querySelector("#output");
+// let textBox = document.querySelector("#textBox");
+// let output = document.querySelector("#output");
 
 // function logKey (event) {
 //     console.log(`You pressed "${event.key}".`);
@@ -238,9 +239,48 @@ let output = document.querySelector("#output");
 // using the example above, we can use alternative form called arrow function. Instead of function(event), we
 // write (event) => :
 
+// general syntax: 
+
+// let func = (arg1, arg2, ..., argN) => expression;
+
+let sum1 = (a, b) => a + b; // option with two arguments
+
+console.log(sum1(1, 99));
+
+
+let double = n => n * 2;  // one argument option
+console.log(double(50));
+
+
+let sayHi = () => console.log("Hello"); // option with no arguments. parentheses are empty, but they must
+sayHi();
+
+
+// Multiline arrow functions
+
+// when complex function with multiple expressions and statements is the case, we enclose it in curly braces
+// the major difference is that curly braces require a return within them to return a value:
+
+let sum2 = (a, b) => {
+    let result = a * b;
+    return result;
+};
+
+console.log(sum2(25, 4));
+
+
+// small real - life example:
+
+let textBox = document.querySelector("#textBox");
+let output = document.querySelector("#output");
+
 textBox.addEventListener("keydown", (event) => {
     output.textContent = `You pressed "${event.key}".`;
 });
+
+
+
+
 
 
 
@@ -260,6 +300,87 @@ textBox.addEventListener("keydown", (event) => {
 // loops and conditional scopes work the same way as functions scope. 
 
 
-// Return 
 
-// values which function returns when it completes. 
+//Callback function
+
+// its a function which is passed as an arhument to another function, which then calls it later. Its 
+// typically used for asynchronous operation (like fetching data) is finished, allowed code to run 
+// in a specific order or respond to events.
+
+// example of function which uses callback functions and performs as confirm form with feedback depemding 
+// of user choice. 
+
+function ask(question, yes, no) { 
+    if (console.log(question)) yes() //should be confirm
+    else no();
+}
+
+function showOk() { // callback function 
+    console.log("You agreed.");   
+}
+
+function showCancel() { // callback function
+    console.log("You cancelled executiom");
+}
+
+ask("Do you agree?", showOk, showCancel); //showOk used as CB function if yes (OK buton), and showCancel 
+// if no (Cancel button) clicked
+
+
+// same function but with function expressions. in this example functions (actions) declared right inside 
+// ask call.
+
+function ask(question, yes, no) {
+  if (console.log(question)) yes() //should be confirm
+  else no();
+}
+
+ask(
+  "Do you agree?",
+  function() { console.log("You agreed."); },
+  function() { console.log("You canceled the execution."); }
+);
+
+
+// Function Expresion vs Function Declaration
+
+// function declaration: a function declared as separate statement, in the main code flow:
+
+function sum(a, b){
+    return a + b;
+}
+
+sum(3, 5);
+
+// function expression: a function, created inside an expression or inside another syntax construt:
+
+let sub = function(q, w) {
+    return q - w;
+}
+
+sub(9, 8);
+
+// function expression is created when the execution reaches it and is usable only from that moment. it
+// "initializes" when execution flow passes through.
+
+// function declaration can be called earlier than it is defined. another feature of FD is that in strict 
+// mode , when function declaration is within a code block, it is visible everywhere inside that block, but
+// not outside of it.
+
+// both of these behaviors are caused by the fact that internal JavaScript algorithms :
+
+// when JavaScript prepares to run the script, it first looks for global function declaration in it and 
+// creates ("initializes") the functions, after them being procesed code flow executes and than we start
+// to "initialze" function expressions.
+
+
+// When choose what
+
+// As a rule of thumb, when we need to declare a function, the first thing to consider is function 
+// declaration syntax. It gives more:
+// - freedom in how to organize code, because we can call such functions before the declared. 
+// - readability 
+
+// for cases where function declaration does not suit or conditional decalaration is required - we need to 
+// use functional expression.
+
