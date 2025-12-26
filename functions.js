@@ -258,3 +258,8 @@ textBox.addEventListener("keydown", (event) => {
 // error and you are sure that you have defined the variable in question, check what scope it is in.
 
 // loops and conditional scopes work the same way as functions scope. 
+
+
+// Return 
+
+// values which function returns when it completes. 
