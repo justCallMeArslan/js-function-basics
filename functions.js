@@ -310,13 +310,13 @@ textBox.addEventListener("keydown", (event) => {
 // example of function which uses callback functions and performs as confirm form with feedback depemding 
 // of user choice. 
 
-function ask(question, yes, no) { 
+function ask(question, yes, no) {
     if (console.log(question)) yes() //should be confirm
     else no();
 }
 
 function showOk() { // callback function 
-    console.log("You agreed.");   
+    console.log("You agreed.");
 }
 
 function showCancel() { // callback function
@@ -331,14 +331,14 @@ ask("Do you agree?", showOk, showCancel); //showOk used as CB function if yes (O
 // ask call.
 
 function ask(question, yes, no) {
-  if (console.log(question)) yes() //should be confirm
-  else no();
+    if (console.log(question)) yes() //should be confirm
+    else no();
 }
 
 ask(
-  "Do you agree?",
-  function() { console.log("You agreed."); },
-  function() { console.log("You canceled the execution."); }
+    "Do you agree?",
+    function () { console.log("You agreed."); },
+    function () { console.log("You canceled the execution."); }
 );
 
 
@@ -346,7 +346,7 @@ ask(
 
 // function declaration: a function declared as separate statement, in the main code flow:
 
-function sum(a, b){
+function sum(a, b) {
     return a + b;
 }
 
@@ -354,7 +354,7 @@ sum(3, 5);
 
 // function expression: a function, created inside an expression or inside another syntax construt:
 
-let sub = function(q, w) {
+let sub = function (q, w) {
     return q - w;
 }
 
