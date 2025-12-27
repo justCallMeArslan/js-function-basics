@@ -212,8 +212,8 @@ console.log(showMovie());
 
 //Anonymous function
 
-// its called anonymous because it has no name. They usually used when a function parameter is often passed as an
-// anonymous function.
+// its called anonymous because it has no name. They usually used when a function parameter is often 
+// passed as an anonymous function.
 // this form of creating a function is also known as function expression. Unlike function declaraion, function 
 // expression are not hoisted, meaning they cant be called before function defined in the code.
 // no matter the way function created (expression or declaration ), a function is value.

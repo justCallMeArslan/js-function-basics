@@ -87,3 +87,10 @@ function lastLetter(str1) {
 }
 
 console.log(lastLetter("abcd"));
+
+function test() {
+  console.log("Hello");
+}
+
+let result = test();
+console.log(result);
